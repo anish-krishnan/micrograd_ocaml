@@ -1,0 +1,6 @@
+(executable
+ (public_name micrograd_ocaml)
+ (name main)
+ (libraries micrograd_ocaml)
+ (preprocess
+  (pps ppx_jane)))
