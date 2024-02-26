@@ -1,2 +1,5 @@
-(test
- (name test_micrograd_ocaml))
+(library
+ (name test_micrograd_ocaml)
+ (inline_tests)
+ (preprocess
+  (pps ppx_expect)))
