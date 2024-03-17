@@ -1,15 +1,9 @@
 open! Core
-module Node = Micrograd_ocaml.Value.Node
+open Micrograd_ocaml.Gradient_node
 
 let () =
-  let a = Node.create ~label:"a" ~data:2.0 in
-  let b = Node.create ~label:"b" ~data:3.0 in
-  let c = Node.(a * b) in
-  print_s [%message (c : Node.t)];
-  print_s [%message (c |> Node.init_gradient |> Node.backwards : Node.t)]
-(* print_s
-   [%message
-     (a : Node.t)
-       (b : Node.t)
-       ~sum:(Node.(a + b) : Node.t)
-       ~sum:(Node.(a + a) : Node.t)] *)
+  let a = create ~label:"a" ~value:2. in
+  let b = create ~label:"b" ~value:3. in
+  let c = a * b in
+  let () = backwards c in
+  print_s [%message (c : t)]

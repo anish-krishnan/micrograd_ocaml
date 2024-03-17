@@ -1,5 +1,6 @@
 (library
  (name test_micrograd_ocaml)
+ (libraries micrograd_ocaml)
  (inline_tests)
  (preprocess
-  (pps ppx_expect)))
+  (pps ppx_jane ppx_expect ppx_inline_test)))
